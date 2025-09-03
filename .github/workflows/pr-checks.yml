@@ -1,0 +1,21 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Run a simulated test
+      run: |
+        echo "Running simulated tests..."
+        # This command will succeed if 'test.txt' exists, and fail otherwise.
+        ls test.txt
+        echo "Simulated tests passed!"
